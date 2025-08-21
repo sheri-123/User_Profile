@@ -1,0 +1,647 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.main {
+    height: auto;
+    width: 100%;
+    background-color: white;
+}
+
+.div1 {
+    height: 62px;
+    width: 100%;
+    /* background-color: blueviolet; */
+}
+
+.navbar {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+    transition: all 0.4s ease-in-out;
+    font-family: "Segoe UI", sans-serif;
+    background: #35405f;
+}
+
+.navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-left: 20px;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    margin-right: 20px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0dcaf0 !important;
+    transform: scale(1.1);
+}
+
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #0dcaf0;
+    bottom: -4px;
+    left: 0;
+    transition: 0.3s;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+.icon {
+    margin-right: 6px;
+}
+
+.div2 {
+    height: 650px;
+    width: 100%;
+    background-image: linear-gradient(rgba(51, 49, 49, 0.7), rgba(51, 49, 49, 0.7)), url('../images/background_image1.jpg');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.hire-btn {
+    display: inline-block;
+    padding: 16px 55px;
+    font-size: 18px;
+    color: black;
+    background: white;
+    border: none;
+    /* border-radius: 50px; */
+    text-decoration: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+    position: relative;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.hire-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-30deg);
+    transition: all 0.5s ease;
+}
+
+.hire-btn:hover::before {
+    left: 100%;
+}
+
+.hire-btn:hover {
+    background: black;
+    color: white;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.6);
+    transform: scale(1.05);
+}
+
+.div3{
+    height: 800px;
+    width: 100%;
+    background-color: white;
+}
+
+.portfolio {
+  height: 800px;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #dff6f0;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.title {
+  font-family: 'Pacifico', cursive;
+  font-size: 40px;
+  color: #13747d;
+  margin-bottom: 40px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  cursor: pointer;
+}
+
+.grid-item {
+  perspective: 1000px;
+}
+
+.flip-card {
+  width: 100%;
+  height: 200px;
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.flip-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.flip-back {
+  background-color: black;
+  color: white;
+  transform: rotateX(180deg);
+  font-size: 1.2rem;
+  padding-top: 100px;
+}
+
+.btn2 {
+    display: inline-block;
+    padding: 16px 55px;
+    font-size: 18px;
+    color: aqua;
+    background: white;
+    border: none;
+    /* border-radius: 50px; */
+    text-decoration: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    border: 1px solid aqua;
+}
+
+.btn2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-30deg);
+    transition: all 0.5s ease;
+}
+
+.btn2:hover::before {
+    left: 100%;
+}
+
+.btn2:hover {
+    background: black;
+    color: white;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.6);
+    transform: scale(1.05);
+}
+
+.div4{
+    height: 400px;
+    width: 100%;
+    background-image: url('../images/background_image2.gif');
+}
+
+.facts-section {
+  height: 400px;
+  text-align: center;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  padding-top: 60px;
+}
+
+.facts-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.facts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.fact-box {
+  border-right: 2px solid white;
+  padding: 10px;
+}
+
+.fact-box:last-child {
+  border-right: none;
+}
+
+.label {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.count {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.div5{
+    height: 600px;
+    width: 100%;
+    background-color: rgb(224, 247, 246);
+    display: flex;
+    justify-content: center;
+}
+
+.testimonials {
+  padding: 40px 20px;
+}
+
+.testimonials h1 {
+  font-size: 60px;
+  color: teal;
+  margin-bottom: 30px;
+  font-family: cursive;
+}
+
+.carousel {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.testimonial {
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.testimonial.active {
+  display: block;
+}
+
+.testimonial img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  margin-left: 170px;
+}
+
+.testimonial p {
+  max-width: 500px;
+  margin: 0 auto 10px;
+  text-align: center;
+}
+
+.testimonial strong {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 18px;
+}
+
+.testimonial span {
+  font-size: 15px;
+  color: gray;
+  margin-left: 170px;
+}
+
+.dots {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #333;
+}
+
+.div6{
+  height: 680px;
+  width: 100%;
+  background-color: #116a72;
+}
+.contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 60px 20px;
+  background: #116a72;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.contact-form,
+.contact-info {
+  flex: 1 1 350px;
+  margin: 40px;
+  max-width: 500px;
+}
+
+/* Input styling matching screenshot */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #fff;
+  border-radius: 0px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 15px;
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 130px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #fff;
+  opacity: 0.8;
+}
+
+/* Submit button */
+.contact-form input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: linear-gradient(to right, #fff, #eee);
+  color: #116a72;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+  background: #fff;
+  color: #0a5a5d;
+}
+
+/* Contact Info */
+.contact-info .info-item {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+.diamond-icon{
+  margin-left: 20px;
+}
+
+.contact-info .diamond-icon {
+  width: 40px;
+  height: 40px;
+  transform: rotate(45deg);
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.contact-info .diamond-icon i {
+  transform: rotate(-45deg);
+  font-size: 16px;
+}
+
+.contact-info strong {
+  font-weight: bold;
+}
+
+.social-icons {
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.social-icons a {
+  color: white;
+  /* margin: 0 5px; */
+  margin-top: 20px;
+  margin-left: 8px;
+  font-size: 20px;
+  display: inline-block;
+  transition: transform 0.3s ease;
+  padding: 8px 16px;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Footer */
+.footer {
+  background: #0f4e52;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  .popup-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .popup-content h2 {
+    margin-bottom: 15px;
+    color: #4CAF50;
+  }
+
+  .popup-content p {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover {
+    color: #000;
+  }
+
+
+
+
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form,
+  .contact-info {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .div2 {
+    height: auto;
+    background-attachment: scroll;
+    padding: 60px 20px;
+  }
+
+  .div3,
+  .portfolio {
+    height: auto;
+    padding: 50px 20px;
+  }
+
+  .div4,
+  .facts-section {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+  .facts-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .div5 {
+    height: auto;
+    flex-direction: column;
+    padding: 40px 20px;
+  }
+
+  .carousel {
+    max-width: 90%;
+  }
+
+  .testimonial img {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+  .testimonial span {
+    margin-left: 0;
+    text-align: center;
+    display: block;
+  }
+
+  .div6 {
+    height: auto;
+  }
+
+  .contact-section {
+    padding: 40px 15px;
+  }
+
+  .contact-form,
+  .contact-info {
+    margin: 20px 0;
+  }
+
+  .social-icons {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .title {
+    font-size: 30px;
+  }
+
+  .facts-section h2 {
+    font-size: 2rem;
+  }
+
+  .facts-container {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials h1 {
+    font-size: 36px;
+  }
+
+  .btn2,
+  .hire-btn {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .testimonial p {
+    font-size: 14px;
+  }
+
+  .contact-form input[type="submit"] {
+    font-size: 16px;
+  }
+
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar-nav .nav-link {
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 12px;
+  }
+}
+

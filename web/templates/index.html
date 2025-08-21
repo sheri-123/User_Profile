@@ -1,0 +1,517 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"
+        integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+
+<body>
+    <div class="main">
+        {% if success %}
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span id="close-popup" class="close">&times;</span>
+                <h2>Thank you!</h2>
+                <p>Your Response Is Submitted. I Will Contact You Very Soon.</p>
+            </div>
+        </div>
+        {% endif %}
+        <div class="div1">
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Shaheryar Ali</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#home"><i class="fas fa-home icon"></i>Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#portfolio"><i class="fas fa-bookmark icon"></i>Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#me"><i class="fas fa-bullhorn icon"></i>Me</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#reviews"><i class="fas fa-thumbs-up icon"></i>Reviews</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact"><i class="fas fa-phone icon"></i>Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div id="home" class="div2 text-center">
+            <h1 style="font-size: 100px; color: white;font-family:cursive;padding-top: 80px;">Shaheryar Ali</h1>
+            <h2 style="color: white;">I'am a Python Developer</h2>
+            <a href="#" class="hire-btn">HIRE ME</a>
+        </div>
+        <div id="portfolio" class="div3">
+            <section class="portfolio">
+                <h2 class="title">Latest Works</h2>
+                <div class="grid-container">
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-inner">
+                                <div class="flip-front">
+                                    <img src="{% static 'images/work1.jpg' %}" alt="Work 1"
+                                        style="width: 100%; height: auto; display: block;">
+                                </div>
+                                <div class="flip-back">
+                                    <h3>CREATIVE JOE</h3>
+                                    <div style="gap: 15px; color: aqua;" class="d-flex justify-content-center p-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-pinterest" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-inner">
+                                <div class="flip-front">
+                                    <img src="{% static 'images/work2.jpg' %}" alt="Work 2"
+                                        style="width: 100%; height: auto; display: block;">
+                                </div>
+                                <div class="flip-back">
+                                    <h3>CREATIVE JOE</h3>
+                                    <div style="gap: 15px; color: aqua;" class="d-flex justify-content-center p-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-pinterest" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Repeat for other cards -->
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-inner">
+                                <div class="flip-front">
+                                    <img src="{% static 'images/work3.png' %}" alt="Work 3"
+                                        style="width: 100%; height: auto; display: block;">
+                                </div>
+                                <div class="flip-back">
+                                    <h3>CREATIVE JOE</h3>
+                                    <div style="gap: 15px; color: aqua;" class="d-flex justify-content-center p-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-pinterest" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-inner">
+                                <div class="flip-front">
+                                    <img src="{% static 'images/work4.jpg' %}" alt="Work 4"
+                                        style="width: 100%; height: auto; display: block;">
+                                </div>
+                                <div class="flip-back">
+                                    <h3>CREATIVE JOE</h3>
+                                    <div style="gap: 15px; color: aqua;" class="d-flex justify-content-center p-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-pinterest" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-inner">
+                                <div class="flip-front">
+                                    <img src="{% static 'images/work5.jpg' %}" alt="Work 5"
+                                        style="width: 100%; height: auto; display: block;">
+                                </div>
+                                <div class="flip-back">
+                                    <h3>CREATIVE JOE</h3>
+                                    <div style="gap: 15px; color: aqua;" class="d-flex justify-content-center p-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-pinterest" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-inner">
+                                <div class="flip-front">
+                                    <img src="{% static 'images/work6.jpg' %}" alt="Work 6"
+                                        style="width: 100%; height: auto; display: block;">
+                                </div>
+                                <div class="flip-back">
+                                    <h3>CREATIVE JOE</h3>
+                                    <div style="gap: 15px; color: aqua;" class="d-flex justify-content-center p-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-pinterest" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-inner">
+                                <div class="flip-front">
+                                    <img src="{% static 'images/work7.jpg' %}" alt="Work 7"
+                                        style="width: 100%; height: auto; display: block;">
+                                </div>
+                                <div class="flip-back">
+                                    <h3>CREATIVE JOE</h3>
+                                    <div style="gap: 15px; color: aqua;" class="d-flex justify-content-center p-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-pinterest" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-item">
+                        <div class="flip-card">
+                            <div class="flip-inner">
+                                <div class="flip-front">
+                                    <img src="{% static 'images/work8.png' %}" alt="Work 8"
+                                        style="width: 100%; height: auto; display: block;">
+                                </div>
+                                <div class="flip-back">
+                                    <h3>CREATIVE JOE</h3>
+                                    <div style="gap: 15px; color: aqua;" class="d-flex justify-content-center p-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+                                            <path
+                                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z" />
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            fill="currentColor" class="bi bi-pinterest" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 0a8 8 0 0 0-2.915 15.452c-.07-.633-.134-1.606.027-2.297.146-.625.938-3.977.938-3.977s-.239-.479-.239-1.187c0-1.113.645-1.943 1.448-1.943.682 0 1.012.512 1.012 1.127 0 .686-.437 1.712-.663 2.663-.188.796.4 1.446 1.185 1.446 1.422 0 2.515-1.5 2.515-3.664 0-1.915-1.377-3.254-3.342-3.254-2.276 0-3.612 1.707-3.612 3.471 0 .688.265 1.425.595 1.826a.24.24 0 0 1 .056.23c-.061.252-.196.796-.222.907-.035.146-.116.177-.268.107-1-.465-1.624-1.926-1.624-3.1 0-2.523 1.834-4.84 5.286-4.84 2.775 0 4.932 1.977 4.932 4.62 0 2.757-1.739 4.976-4.151 4.976-.811 0-1.573-.421-1.834-.919l-.498 1.902c-.181.695-.669 1.566-.995 2.097A8 8 0 1 0 8 0" />
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn2">👁️ VIEW ALL</button>
+            </section>
+        </div>
+        <div id="me" class="div4">
+            <section class="facts-section">
+                <h2>Some Cool Facts About Me</h2>
+                <div class="facts-container">
+                    <div class="fact-box">
+                        <p class="label">Conferences</p>
+                        <h3 class="count" data-target="101">0</h3>
+                    </div>
+                    <div class="fact-box">
+                        <p class="label">Lines of Code</p>
+                        <h3 class="count" data-target="92">10</h3>
+                    </div>
+                    <div class="fact-box">
+                        <p class="label">Hours of Work</p>
+                        <h3 class="count" data-target="54">0</h3>
+                    </div>
+                    <div class="fact-box">
+                        <p class="label">Repositories Git</p>
+                        <h3 class="count" data-target="99">0</h3>
+                    </div>
+                    <div class="fact-box">
+                        <p class="label">Mobile APP</p>
+                        <h3 class="count" data-target="124">0</h3>
+                    </div>
+                    <div class="fact-box">
+                        <p class="label">Happy Client</p>
+                        <h3 class="count" data-target="45">0</h3>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <div id="reviews" class="div5">
+            <section class="testimonials">
+                <h1>What Clients Say</h1>
+                <div class="carousel">
+                    <div class="testimonial active">
+                        <img src="{% static 'images/testimonial1.jpg' %}" alt="Client Photo" />
+                        <p>I focus on strong teamwork. I always aim to stay ahead in performance. I handle tasks
+                            efficiently and adapt quickly to <br> changing priorities. I also bring energy and drive to
+                            every project <br> I take on.</p>
+                        <strong>Jhon Doe</strong>
+                        <span>Team Lead, Design Studio</span>
+                    </div>
+                    <div class="testimonial">
+                        <img src="{% static 'images/testimonial3.jpg' %}" alt="Client Photo" />
+                        <p>Be present in confident posture. Focus on previous progress. Continue with measured steps,
+                            balancing current efforts with solid results. Maintain a strong presence, combining purpose
+                            with strategy.</p>
+                        <strong>Jane Doe</strong>
+                        <span>Creative Director, ABC Corp</span>
+                    </div>
+                    <div class="testimonial">
+                        <img src="{% static 'images/testimonial2.jpg' %}" alt="Client Photo" />
+                        <p>He approaches tasks with focus and balance. He is proactive and strategic, combining
+                            thoughtful planning with effective teamwork. His contributions are impactful and
+                            well-executed.</p>
+                        <strong>Albert Doe</strong>
+                        <span>Founder, XYZ Inc</span>
+                    </div>
+                </div>
+                <div class="dots">
+                    <span class="dot active" onclick="showTestimonial(0)"></span>
+                    <span class="dot" onclick="showTestimonial(1)"></span>
+                    <span class="dot" onclick="showTestimonial(2)"></span>
+                </div>
+            </section>
+        </div>
+        <div id="contact" class="div6">
+            <h1 style="color: white;font-size: 60px;font-family: cursive;text-align: center;">Contact</h1>
+            <div class="contact-section">
+                <div class="contact-form">
+                    <form method="POST" action="{% url 'contact' %}">
+                        {% csrf_token %}
+                        <input type="text" name="name" placeholder="Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <textarea name="message" placeholder="Say Something..." required></textarea>
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="diamond-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <strong>Address:</strong> 308 Negra Arroyo Lane<br>Albuquerque, New Mexico, 87111
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="diamond-icon mt-1"><i class="fas fa-mobile-alt"></i></div>
+                        <div><strong>Cell No:</strong> 1-800-123-456</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="diamond-icon mt-2"><i class="fas fa-envelope"></i></div>
+                        <div><strong>Email:</strong> developer@gmail.com</div>
+                    </div>
+                    <div class="social-icons">
+                        <a style="background-color: #3b5998;" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a style="background-color: aqua;" href="#"><i class="fab fa-twitter"></i></a>
+                        <a style="background-color: orangered;" href="#"><i class="fab fa-google-plus-g"></i></a>
+                        <a style="background-color: rgb(85, 187, 228);" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                © 2014 Developer | Designed by ThemeWagon
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const counters = document.querySelectorAll('.count');
+    let started = false;
+
+    function startCounting() {
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const current = +counter.innerText;
+                const increment = Math.ceil(target / 50);
+
+                if (current < target) {
+                    counter.innerText = current + increment;
+                    setTimeout(updateCount, 100);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+    }
+
+    // Trigger on scroll
+    window.addEventListener('scroll', () => {
+        const section = document.querySelector('.facts-section');
+        const sectionTop = section.getBoundingClientRect().top;
+        if (!started && sectionTop < window.innerHeight) {
+            started = true;
+            startCounting();
+        }
+    });
+</script>
+
+<script>
+    let current = 0;
+    const testimonials = document.querySelectorAll('.testimonial');
+    const dots = document.querySelectorAll('.dot');
+
+    function showTestimonial(index) {
+        testimonials.forEach(t => t.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        testimonials[index].classList.add('active');
+        dots[index].classList.add('active');
+        current = index;
+    }
+
+    // Auto switch every 5 seconds
+    setInterval(() => {
+        current = (current + 1) % testimonials.length;
+        showTestimonial(current);
+    }, 2000);
+
+</script>
+
+<script>
+  window.onload = function() {
+    const popup = document.getElementById('popup');
+    if (popup) {
+      if (!sessionStorage.getItem('popupShown')) {
+        popup.style.display = 'block';
+
+        document.getElementById('close-popup').onclick = function() {
+          popup.style.display = 'none';
+        };
+
+        setTimeout(() => {
+          popup.style.display = 'none';
+        }, 5000);
+
+        sessionStorage.setItem('popupShown', 'true');
+      }
+    } else {
+      sessionStorage.removeItem('popupShown');
+    }
+  }
+</script>

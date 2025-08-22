@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # ADD THIS LINE
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -128,6 +129,8 @@ STATICFILES_DIRS = [
     BASE_DIR / "staticfiles",
 ]
 
+# Add this line for Whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
@@ -136,3 +139,8 @@ EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'muhammadshaheryar1920@gmail.com'         # Your email
 EMAIL_HOST_PASSWORD = 'zhyb wvga ynit zqok'        # Your Gmail app password (not your normal password!)
+# Find this line:
+ALLOWED_HOSTS = []
+
+# And change it to this:
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']

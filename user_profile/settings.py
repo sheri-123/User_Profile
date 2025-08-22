@@ -125,7 +125,7 @@ STATIC_URL = '/static/'
 
 # Add this if it's missing
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "staticfiles",
 ]
 
 

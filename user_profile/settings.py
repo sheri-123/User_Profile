@@ -12,6 +12,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
+# NEW CODE TO FIX SQLITE3 ON VERCEL - MUST BE AT THE TOP
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,12 +26,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# This will be overridden by your Environment Variable on Vercel
 SECRET_KEY = 'django-insecure-j@$jsmu_7y5&a5z8h_40@akat@3&hhb5i=xl5#l219r6hoz+%o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# Vercel handles this automatically, so it's okay to leave this as True.
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -42,8 +50,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # For serving static files
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # ADD THIS LINE
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -102,45 +110,35 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
+# https://docs.djangoproject.com/en/5.2/topics/i1n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+# This is the directory where 'collectstatic' will gather all static files.
+STATIC_ROOT = BASE_DIR / "staticfiles"
+# This tells Django how to handle static files in production, using Whitenoise.
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATIC_URL = '/static/'
 
-# Add this if it's missing
-STATICFILES_DIRS = [
-    BASE_DIR / "staticfiles",
-]
 
-# Add this line for Whitenoise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+# Email settings
+# These will be overridden by your Environment Variables on Vercel
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
-EMAIL_HOST_USER = 'muhammadshaheryar1920@gmail.com'         # Your email
-EMAIL_HOST_PASSWORD = 'wxag zqkj ffso mpwb'        # Your Gmail app password (not your normal password!)
-# Find this line:
-ALLOWED_HOSTS = []
-
-# And change it to this:
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+EMAIL_HOST_USER = 'muhammadshaheryar1920@gmail.com'
+EMAIL_HOST_PASSWORD = 'wxag zqkj ffso mpwb'

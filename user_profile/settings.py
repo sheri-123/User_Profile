@@ -10,13 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
-
-# NEW CODE TO FIX SQLITE3 ON VERCEL - MUST BE AT THE TOP
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,18 +21,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-# Use a NEW, CLEAN key for your Vercel Environment Variables.
-SECRET_KEY = 'kyfgm@#2h6pw#fqzmsye&b*7s(_j=%9h!0y4f#f#dk14x0k^kw' # IMPORTANT: Replace this
+# SECURITY WARNING: Storing secrets in code is a risk.
+# For production, it's safer to use Vercel's Environment Variables.
+SECRET_KEY = 'kyfgm@#2h6pw#fqzmsye&b*7s(_j=%9h!0y4f#f#dk14x0k^kw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
-# --- CRITICAL DEPLOYMENT SETTING ---
-# Replace the URL with your actual Vercel domain
-CSRF_TRUSTED_ORIGINS = ['https://user-profile-6f4d.vercel.app']
+# CRITICAL DEPLOYMENT SETTING: Dynamically adds your Vercel URL to trusted sites.
+if VERCEL_URL := os.environ.get('VERCEL_URL'):
+    CSRF_TRUSTED_ORIGINS = [f'https://{VERCEL_URL}']
+else:
+    CSRF_TRUSTED_ORIGINS = []
 
 
 # Application definition
@@ -82,28 +80,28 @@ TEMPLATES = [
 WSGI_APPLICATION = 'user_profile.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# --- DATABASE CONFIGURATION (UPDATED FOR VERCEL POSTGRES) ---
+# This code now connects to your live Postgres database when deployed.
+# For local work, it will fall back to using your db.sqlite3 file.
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        # Vercel provides the DATABASE_URL environment variable automatically
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600
+    )
 }
 
 
 # Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
-    # ... your validators ...
+    { 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
+    { 'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', },
+    { 'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator', },
+    { 'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator', },
 ]
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i1n/
-
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
@@ -111,20 +109,16 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Email settings
+# Email settings (Kept as you requested)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

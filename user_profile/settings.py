@@ -138,7 +138,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'muhammadshaheryar1920@gmail.com'         # Your email
-EMAIL_HOST_PASSWORD = 'zhyb wvga ynit zqok'        # Your Gmail app password (not your normal password!)
+EMAIL_HOST_PASSWORD = 'wxag zqkj ffso mpwb'        # Your Gmail app password (not your normal password!)
 # Find this line:
 ALLOWED_HOSTS = []
 

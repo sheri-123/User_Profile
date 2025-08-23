@@ -117,21 +117,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# THE DEFINITIVE FIX:
-# We are explicitly telling Django to look for a folder named 'static'
-# inside your 'web' app directory. This removes all ambiguity for the Vercel build.
+# Explicitly telling Django where to find the original static files.
 STATICFILES_DIRS = [
     BASE_DIR / "web/static",
 ]
 
-# This is the single folder where 'collectstatic' will copy all found files
-# for Vercel to serve.
+# This is the single folder where 'collectstatic' will copy all found files for Vercel to serve.
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Use WhiteNoise to serve files efficiently in production.
+# THE FINAL, CORRECT FIX:
+# Changed the backend to the CORRECT class name 'StaticFilesStorage'
+# which serves files WITHOUT RENAMING THEM. This will work.
 STORAGES = {
     "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        "BACKEND": "whitenoise.storage.StaticFilesStorage",
     },
 }
 

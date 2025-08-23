@@ -117,11 +117,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# REMOVED STATICFILES_DIRS: By removing this, Django will automatically find
-# static files inside the 'static/' folder of each app in INSTALLED_APPS (like your 'web' app).
-# This is the standard and most reliable method.
+# THE DEFINITIVE FIX:
+# We are explicitly telling Django to look for a folder named 'static'
+# inside your 'web' app directory. This removes all ambiguity for the Vercel build.
+STATICFILES_DIRS = [
+    BASE_DIR / "web/static",
+]
 
-# This is the single folder where 'collectstatic' will copy all static files
+# This is the single folder where 'collectstatic' will copy all found files
 # for Vercel to serve.
 STATIC_ROOT = BASE_DIR / "staticfiles"
 

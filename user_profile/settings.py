@@ -35,16 +35,17 @@ DEBUG = os.environ.get('NODE_ENV') != 'production'
 # Get the Vercel URL from environment variables
 VERCEL_URL = os.environ.get('VERCEL_URL')
 
-# Configure allowed hosts for security
+# (This is the new, corrected block)
+VERCEL_URL = os.environ.get('VERCEL_URL')
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 if VERCEL_URL:
-    # Add the Vercel domain to the allowed hosts
-    ALLOWED_HOSTS.append(VERCEL_URL.replace("https://", ""))
+    # ALLOWED_HOSTS should not have the scheme
+    ALLOWED_HOSTS.append(VERCEL_URL)
 
-# Configure trusted origins for CSRF protection
-CSRF_TRUSTED_ORIGINS = []
+# CSRF_TRUSTED_ORIGINS requires the full URL with the 'https://' scheme
+CSRF_TRUSTED_ORIGINS = ['https://127.0.0.1', 'https://localhost']
 if VERCEL_URL:
-    CSRF_TRUSTED_ORIGINS.append(VERCEL_URL)
+    CSRF_TRUSTED_ORIGINS.append(f'https://{VERCEL_URL}')
 
 
 # --- APPLICATION DEFINITION ---

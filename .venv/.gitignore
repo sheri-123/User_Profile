@@ -1,0 +1,16 @@
+# Python / Django
+__pycache__/
+*.pyc
+
+# Virtual Environment
+.venv/
+/venv/
+
+# Database file
+db.sqlite3
+
+# Static files collected for deployment
+staticfiles/
+
+# Vercel specific
+.vercel/

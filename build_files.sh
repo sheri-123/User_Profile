@@ -1,12 +1,17 @@
 #!/bin/bash
 
-# Build the project
-echo "Building the project..."
-python3 -m pip install -r requirements.txt # CHANGED
+# Exit immediately if a command exits with a non-zero status.
+set -e
 
-echo "Make Migrations..."
-python3 manage.py makemigrations --noinput # CHANGED
-python3 manage.py migrate --noinput # CHANGED
+# Upgrade pip and install dependencies
+echo "Installing dependencies..."
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 
-echo "Collect Static..."
-python3 manage.py collectstatic --noinput --clear # CHANGED
+# Apply database migrations
+echo "Applying database migrations..."
+python manage.py migrate --noinput
+
+# Collect static files
+echo "Collecting static files..."
+python manage.py collectstatic --noinput --clear

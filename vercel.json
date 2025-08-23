@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "user_profile/wsgi.py",

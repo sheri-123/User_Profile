@@ -18,26 +18,36 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
+# --- VERCEL DEPLOYMENT SETTINGS ---
+# Environment variables are essential for security and proper deployment.
 
-# SECURITY WARNING: Storing secrets in code is a risk.
-# For production, it's safer to use Vercel's Environment Variables.
-SECRET_KEY = 'kyfgm@#2h6pw#fqzmsye&b*7s(_j=%9h!0y4f#f#dk14x0k^kw'
+# SECURITY WARNING: Use Vercel's Environment Variables for the SECRET_KEY.
+# The value below is only a fallback for local development.
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'kyfgm@#2h6pw#fqzmsye&b*7s(_j=%9h!0y4f#f#dk14x0k^kw'
+)
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# SECURITY WARNING: Never run with debug turned on in production!
+# Vercel sets NODE_ENV to 'production' automatically. We use this to set DEBUG.
+DEBUG = os.environ.get('NODE_ENV') != 'production'
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+# Get the Vercel URL from environment variables
+VERCEL_URL = os.environ.get('VERCEL_URL')
 
-# CRITICAL DEPLOYMENT SETTING: Dynamically adds your Vercel URL to trusted sites.
-if VERCEL_URL := os.environ.get('VERCEL_URL'):
-    CSRF_TRUSTED_ORIGINS = [f'https://{VERCEL_URL}']
-else:
-    CSRF_TRUSTED_ORIGINS = []
+# Configure allowed hosts for security
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+if VERCEL_URL:
+    # Add the Vercel domain to the allowed hosts
+    ALLOWED_HOSTS.append(VERCEL_URL.replace("https://", ""))
+
+# Configure trusted origins for CSRF protection
+CSRF_TRUSTED_ORIGINS = []
+if VERCEL_URL:
+    CSRF_TRUSTED_ORIGINS.append(VERCEL_URL)
 
 
-# Application definition
+# --- APPLICATION DEFINITION ---
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -65,7 +75,7 @@ ROOT_URLCONF = 'user_profile.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [], # If you have a project-level 'templates' folder, add it here: [BASE_DIR / 'templates']
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,19 +90,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'user_profile.wsgi.application'
 
 
-# --- DATABASE CONFIGURATION (UPDATED FOR VERCEL POSTGRES) ---
-# This code now connects to your live Postgres database when deployed.
-# For local work, it will fall back to using your db.sqlite3 file.
+# --- DATABASE CONFIGURATION ---
+# Connects to Vercel Postgres when deployed, otherwise uses local SQLite.
 DATABASES = {
     'default': dj_database_url.config(
-        # Vercel provides the DATABASE_URL environment variable automatically
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
         conn_max_age=600
     )
 }
 
 
-# Password validation
+# --- PASSWORD VALIDATION ---
 AUTH_PASSWORD_VALIDATORS = [
     { 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator', },
     { 'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator', },
@@ -101,24 +109,45 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
+# --- INTERNATIONALIZATION ---
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# --- STATIC FILES (CSS, JavaScript, Images) ---
+# https://docs.djangoproject.com/en/5.2/howto/static-files/
+
 STATIC_URL = '/static/'
+
+# ADDED: This tells Django where to find your project-level static files
+# (like a main style.css or your profile image if not in an app).
+# Create a folder named 'static' in your project's root directory.
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+# This is the single folder where 'collectstatic' will copy all static files
+# for Vercel to serve.
 STATIC_ROOT = BASE_DIR / "staticfiles"
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Use WhiteNoise to serve files efficiently in production.
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 
-# Default primary key field type
+# --- DEFAULT PRIMARY KEY FIELD TYPE ---
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-# Email settings (Kept as you requested)
+# --- EMAIL SETTINGS ---
+# SECURITY WARNING: It is highly recommended to move these credentials to
+# Vercel's Environment Variables to avoid exposing them in your code.
+# For example: EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587

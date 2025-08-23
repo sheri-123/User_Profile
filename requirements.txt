@@ -1,8 +1,16 @@
-# requirements.txt (CLEAN VERSION)
+# requirements.txt (Recommended for Production)
 
-pysqlite3-binary
-Django
-gunicorn
-whitenoise
-dj-database-url
-psycopg2-binary
+# Django Framework - Pinning to the version you are using
+Django==5.2.1
+
+# WSGI Server - Used to run the application in a production environment
+gunicorn==22.0.0
+
+# Static Files - For serving your images, CSS, and JS files efficiently
+whitenoise==6.7.0
+
+# Database URL - Simplifies connecting to Vercel Postgres
+dj-database-url==2.2.0
+
+# PostgreSQL Adapter - Required to connect Django to your Postgres database
+psycopg2-binary==2.9.9
